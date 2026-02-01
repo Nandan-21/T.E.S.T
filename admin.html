@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>T.E.S.T. Admin SOC Command Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700;800&amp;family=Space+Grotesk:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00bfff",
+                        "cyber-red": "#ff3131",
+                        "background-dark": "#05070a",
+                        "panel-bg": "#0c0f16",
+                        "glass-border": "rgba(0, 191, 255, 0.15)",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "technical": ["Space Grotesk", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer components {
+            .glass-panel {
+                @apply bg-panel-bg/80 backdrop-blur-md border border-slate-800 hover:border-primary/30 transition-all duration-300;
+            }
+            .cyber-grid {
+                background-image: linear-gradient(rgba(0, 191, 255, 0.03) 1px, transparent 1px),
+                                linear-gradient(90deg, rgba(0, 191, 255, 0.03) 1px, transparent 1px);
+                background-size: 30px 30px;
+            }
+            .scanline {
+                background: linear-gradient(to bottom, transparent 50%, rgba(0, 191, 255, 0.02) 50%);
+                background-size: 100% 4px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background-dark text-slate-300 font-display min-h-screen selection:bg-primary/30">
+<div class="fixed inset-0 z-0 pointer-events-none">
+<div class="absolute inset-0 cyber-grid"></div>
+<div class="absolute inset-0 scanline"></div>
+<div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-cyber-red/5 rounded-full blur-[120px]"></div>
+</div>
+<div class="relative z-10 flex h-screen overflow-hidden">
+<aside class="w-20 lg:w-72 border-r border-slate-800 bg-panel-bg flex flex-col items-center lg:items-stretch py-6">
+<div class="px-6 mb-10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-4xl">shield_with_heart</span>
+<div class="hidden lg:block">
+<span class="font-technical font-bold text-2xl tracking-[0.1em] text-white">T.E.S.T.</span>
+<p class="text-[8px] font-bold text-slate-500 uppercase tracking-tight leading-none mt-1">Threat Evaluation &amp; Security Tool</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-2 px-3">
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg bg-primary/10 text-primary border border-primary/20" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="hidden lg:block font-bold text-sm uppercase tracking-wider">Command Center</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-slate-500 hover:text-white hover:bg-slate-800/50 transition-all" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="hidden lg:block font-bold text-sm uppercase tracking-wider">User Management</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-slate-500 hover:text-white hover:bg-slate-800/50 transition-all" href="#">
+<span class="material-symbols-outlined">query_stats</span>
+<span class="hidden lg:block font-bold text-sm uppercase tracking-wider">Threat Feeds</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-slate-500 hover:text-white hover:bg-slate-800/50 transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="hidden lg:block font-bold text-sm uppercase tracking-wider">System Settings</span>
+</a>
+</nav>
+<div class="mt-auto px-4">
+<div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800 flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-primary/20 flex items-center justify-center text-primary font-bold">JD</div>
+<div class="hidden lg:block">
+<p class="text-xs font-bold text-white leading-none">John Doe</p>
+<p class="text-[10px] text-primary uppercase font-bold tracking-tighter">Chief Admin</p>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 overflow-y-auto bg-background-dark/50">
+<header class="h-16 border-b border-slate-800 flex items-center justify-between px-8 bg-panel-bg/50 sticky top-0 z-20 backdrop-blur-md">
+<div class="flex items-center gap-6">
+<div class="flex flex-col">
+<h2 class="text-xs font-technical font-bold text-slate-500 uppercase tracking-[0.3em]">Operational Status</h2>
+<span class="text-[9px] font-medium text-primary uppercase tracking-widest hidden md:block">T.E.S.T. Admin Protocol</span>
+</div>
+<div class="flex items-center gap-2 px-2 py-1 bg-green-500/10 border border-green-500/20 rounded">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+<span class="text-[10px] font-bold text-green-500 uppercase">System Nominal</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400">schedule</span>
+<span class="text-xs font-technical text-slate-400">UTC 14:22:58</span>
+</div>
+<button class="relative p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-cyber-red rounded-full"></span>
+</button>
+</div>
+</header>
+<div class="p-8 space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="glass-panel p-6 rounded-xl flex items-center justify-between">
+<div>
+<p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Total Scans Today</p>
+<h3 class="text-3xl font-technical font-bold text-white">1,284</h3>
+</div>
+<span class="material-symbols-outlined text-primary text-4xl opacity-50">radar</span>
+</div>
+<div class="glass-panel p-6 rounded-xl flex items-center justify-between border-l-4 border-l-cyber-red">
+<div>
+<p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Phishing Alerts</p>
+<h3 class="text-3xl font-technical font-bold text-cyber-red">12</h3>
+</div>
+<span class="material-symbols-outlined text-cyber-red text-4xl opacity-50 animate-pulse">emergency_home</span>
+</div>
+<div class="glass-panel p-6 rounded-xl flex items-center justify-between">
+<div>
+<p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Active Users</p>
+<h3 class="text-3xl font-technical font-bold text-white">458</h3>
+</div>
+<span class="material-symbols-outlined text-primary text-4xl opacity-50">person_search</span>
+</div>
+<div class="glass-panel p-6 rounded-xl flex items-center justify-between">
+<div>
+<p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Data Protected</p>
+<h3 class="text-3xl font-technical font-bold text-white">4.2 TB</h3>
+</div>
+<span class="material-symbols-outlined text-primary text-4xl opacity-50">encrypted</span>
+</div>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+<div class="xl:col-span-2 glass-panel rounded-xl overflow-hidden flex flex-col h-[500px]">
+<div class="p-4 border-b border-slate-800 flex items-center justify-between bg-slate-900/40">
+<h3 class="text-sm font-bold uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">language</span>
+                                Global Access Attempts
+                            </h3>
+<div class="flex items-center gap-4 text-[10px]">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-primary"></span> Authorized</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-cyber-red"></span> Blocked</span>
+</div>
+</div>
+<div class="flex-1 relative bg-[#0a0c10] overflow-hidden">
+<img alt="World Map Dark" class="w-full h-full object-cover opacity-20 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5O4CLa1ySJAJMILJNnfm8s4yAtJ06ZQ1uNcyDLVSNUNnCuxxyDJOE-CYl738ixNvoQ02A4QUj4OiWO2WkBzRht9R4T6w9RByG5fa4fQKdwrfyvkVtV4Q4gxHDXKD5UxB5DSiymmHZmZuHAAE7yEnHtZ34PDAdO1VH9GjDu_OtXZeg0qNYj_VfedpO2Vt7G9fX7yU54R7BkXclM4oESevFJKWR_6jp7DQ145yv7QcfyP2yqofHVLb5Mvp0V5kO6XOHafzmN6Ke5Mo"/>
+<div class="absolute top-1/4 left-1/3 w-2 h-2 bg-primary rounded-full shadow-[0_0_10px_#00bfff]"></div>
+<div class="absolute top-1/2 left-1/4 w-2 h-2 bg-cyber-red rounded-full shadow-[0_0_10px_#ff3131]"></div>
+<div class="absolute top-1/3 right-1/4 w-2 h-2 bg-primary rounded-full shadow-[0_0_10px_#00bfff]"></div>
+<div class="absolute bottom-1/3 right-1/3 w-2 h-2 bg-cyber-red rounded-full shadow-[0_0_10px_#ff3131] animate-ping"></div>
+</div>
+</div>
+<div class="glass-panel rounded-xl flex flex-col h-[500px]">
+<div class="p-4 border-b border-slate-800 bg-slate-900/40">
+<h3 class="text-sm font-bold uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">manage_accounts</span>
+                                User Management
+                            </h3>
+</div>
+<div class="flex-1 overflow-y-auto p-4 space-y-4">
+<div class="p-3 rounded-lg bg-slate-800/30 border border-slate-700/50 hover:border-primary/40 transition-colors group">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center text-[10px] font-bold">AS</div>
+<div class="flex-1">
+<p class="text-xs font-bold text-white">Alice Smith</p>
+<p class="text-[10px] text-slate-500">Student • Univ-MIT</p>
+</div>
+<button class="text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+<div class="flex gap-2">
+<span class="text-[9px] px-2 py-0.5 rounded bg-slate-700 text-slate-300">Active</span>
+<span class="text-[9px] px-2 py-0.5 rounded bg-primary/10 text-primary">High Trust</span>
+</div>
+</div>
+<div class="p-3 rounded-lg bg-slate-800/30 border border-slate-700/50 hover:border-primary/40 transition-colors group border-l-2 border-l-cyber-red">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center text-[10px] font-bold">RB</div>
+<div class="flex-1">
+<p class="text-xs font-bold text-white">Robert Brown</p>
+<p class="text-[10px] text-slate-500">External • Org-Beta</p>
+</div>
+<button class="text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+<div class="flex gap-2">
+<span class="text-[9px] px-2 py-0.5 rounded bg-cyber-red/10 text-cyber-red font-bold uppercase">Restricted</span>
+<span class="text-[9px] px-2 py-0.5 rounded bg-slate-700 text-slate-300">Flagged Action</span>
+</div>
+</div>
+<div class="p-3 rounded-lg bg-slate-800/30 border border-slate-700/50 hover:border-primary/40 transition-colors group">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center text-[10px] font-bold">ML</div>
+<div class="flex-1">
+<p class="text-xs font-bold text-white">Maria Lopez</p>
+<p class="text-[10px] text-slate-500">Admin • T.E.S.T.</p>
+</div>
+<button class="text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+<div class="flex gap-2">
+<span class="text-[9px] px-2 py-0.5 rounded bg-slate-700 text-slate-300">Active</span>
+</div>
+</div>
+</div>
+<div class="p-4 border-t border-slate-800">
+<button class="w-full py-2 bg-slate-800 hover:bg-slate-700 text-[10px] font-bold uppercase tracking-widest transition-colors rounded">View All Users</button>
+</div>
+</div>
+</div>
+<div class="glass-panel rounded-xl overflow-hidden">
+<div class="p-4 border-b border-slate-800 bg-slate-900/40 flex justify-between items-center">
+<h3 class="text-sm font-bold uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">history</span>
+                            User Activity Monitor
+                        </h3>
+<div class="flex gap-2">
+<input class="bg-slate-900 border-slate-700 text-[10px] rounded focus:ring-primary focus:border-primary py-1 px-3 w-48" placeholder="Search events..." type="text"/>
+<button class="p-1.5 bg-slate-800 rounded hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">filter_alt</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left text-xs">
+<thead>
+<tr class="text-slate-500 uppercase tracking-tighter border-b border-slate-800">
+<th class="px-6 py-4 font-bold">User / Identity</th>
+<th class="px-6 py-4 font-bold">Timestamp</th>
+<th class="px-6 py-4 font-bold">IP Address</th>
+<th class="px-6 py-4 font-bold">Action Performed</th>
+<th class="px-6 py-4 font-bold">Risk Level</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-800/50">
+<tr class="hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<span class="font-bold text-white">asmith_MIT</span>
+</div>
+</td>
+<td class="px-6 py-4 text-slate-400 font-technical">2026-11-24 14:15:02</td>
+<td class="px-6 py-4 text-slate-400 font-technical">192.168.1.104</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-blue-500/10 text-blue-400 rounded-md text-[10px] border border-blue-500/20">FILE_ACCESS: project_a.zip</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-[10px] font-bold text-slate-500 uppercase">Low</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-800/30 transition-colors bg-cyber-red/5">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-cyber-red animate-ping"></div>
+<span class="font-bold text-white">rbrown_EXT</span>
+</div>
+</td>
+<td class="px-6 py-4 text-slate-400 font-technical">2026-11-24 14:12:45</td>
+<td class="px-6 py-4 text-slate-400 font-technical">45.23.112.89</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-cyber-red/20 text-cyber-red rounded-md text-[10px] border border-cyber-red/30">UNAUTHORIZED_ACCESS_ATTEMPT: admin_db</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-[10px] font-bold text-cyber-red uppercase">Critical</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<span class="font-bold text-white">mlopez_TEST</span>
+</div>
+</td>
+<td class="px-6 py-4 text-slate-400 font-technical">2026-11-24 13:58:33</td>
+<td class="px-6 py-4 text-slate-400 font-technical">10.0.4.52</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-slate-700 text-slate-300 rounded-md text-[10px]">SYSTEM_SCAN_INITIATED</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-[10px] font-bold text-slate-500 uppercase">None</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-yellow-500"></div>
+<span class="font-bold text-white">jsnow_STUDENT</span>
+</div>
+</td>
+<td class="px-6 py-4 text-slate-400 font-technical">2026-11-24 13:45:10</td>
+<td class="px-6 py-4 text-slate-400 font-technical">185.44.22.1</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-yellow-500/10 text-yellow-500 rounded-md text-[10px] border border-yellow-500/20">LOGIN: Mismatching Location</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-[10px] font-bold text-yellow-500 uppercase">Medium</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</div>
+<div class="fixed bottom-6 right-6 z-50">
+<button class="bg-primary text-background-dark p-4 rounded-full shadow-[0_0_20px_rgba(0,191,255,0.4)] hover:scale-105 transition-transform flex items-center justify-center">
+<span class="material-symbols-outlined font-bold">psychiatry</span>
+</button>
+</div>
+
+</body></html>
