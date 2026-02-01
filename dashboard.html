@@ -1,0 +1,396 @@
+<!-- crafted by hand -->
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>T.E.S.T. Dashboard Overview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00bfff",
+                        "background-light": "#f3f5f7",
+                        "background-dark": "#0c0f13",
+                        "card-dark": "#161b22",
+                        "border-dark": "#30363d",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "mono": ["Space Grotesk", "monospace"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #0c0f13;
+        }
+        .neo-glow {
+            box-shadow: 0 0 15px rgba(0, 191, 255, 0.15);
+        }
+        .neo-glow-hover:hover {
+            box-shadow: 0 0 25px rgba(0, 191, 255, 0.3);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+        .radial-progress {
+            transform: rotate(-90deg);
+        }
+        .cyber-grid {
+            background-image: linear-gradient(rgba(0, 191, 255, 0.05) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(0, 191, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0c0f13;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #30363d;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00bfff;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 h-screen flex overflow-hidden">
+<aside class="w-72 border-r border-border-dark flex flex-col justify-between bg-card-dark z-30 shrink-0">
+<div class="p-6">
+<div class="flex items-start gap-3 mb-10">
+<div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center neo-glow border border-primary/30 shrink-0">
+<span class="material-symbols-outlined text-primary font-bold text-3xl">shield</span>
+</div>
+<div class="overflow-hidden">
+<h1 class="font-mono font-bold text-2xl tracking-tighter text-white leading-none">T.E.S.T.</h1>
+<p class="text-[9px] uppercase tracking-tighter text-slate-400 font-bold mt-1 leading-tight">Threat Evaluation &amp; Security Tool</p>
+</div>
+</div>
+<nav class="space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary/10 text-primary border border-primary/20" href="dashboard.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-white/5 hover:text-white transition-all" href="vulnerability_Scanner.html">
+<span class="material-symbols-outlined">security</span>
+<span class="font-medium">WVS Scanner</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-white/5 hover:text-white transition-all" href="Phishing_analyzer.html">
+<span class="material-symbols-outlined">mail_lock</span>
+<span class="font-medium">Email Analyzer</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-white/5 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">terminal</span>
+<span class="font-medium">Log SOC</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-white/5 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">memory</span>
+<span class="font-medium">AI Core</span>
+</a>
+</nav>
+</div>
+<div class="p-6 border-t border-border-dark">
+<div class="bg-primary/5 border border-primary/10 rounded-xl p-4 mb-4">
+<div class="flex justify-between items-center mb-2">
+<span class="text-xs font-bold text-primary">NODE STATUS</span>
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+</div>
+<p class="text-[11px] text-slate-400 leading-relaxed">AI engine operating at 98.4% efficiency. No active breaches detected.</p>
+</div>
+<button class="w-full py-3 bg-primary text-background-dark font-bold rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">bolt</span>
+                Upgrade Plan
+            </button>
+</div>
+</aside>
+<div class="flex-1 flex flex-col min-w-0 h-full relative">
+<header class="h-20 border-b border-border-dark flex items-center justify-between px-8 bg-background-dark/80 backdrop-blur-xl sticky top-0 z-20 shrink-0">
+<div class="flex items-center gap-4">
+<h2 class="text-xl font-bold font-mono tracking-tight text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">sensors</span>
+                    SYSTEM_OVERVIEW
+                </h2>
+<div class="h-4 w-[1px] bg-border-dark mx-2"></div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-sm">search</span>
+<input class="bg-white/5 border-border-dark rounded-full pl-10 pr-4 py-1.5 text-sm w-64 focus:ring-primary focus:border-primary text-white" placeholder="Search threats, logs, nodes..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-primary border border-border-dark">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-primary border border-border-dark">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<div class="h-10 w-[1px] bg-border-dark"></div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-sm font-bold text-white leading-none">Admin_User</p>
+<p class="text-[10px] text-primary font-mono uppercase tracking-widest mt-1">Tier: Enterprise</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-blue-600 p-[2px]">
+<div class="w-full h-full rounded-full bg-background-dark flex items-center justify-center overflow-hidden">
+<img alt="Cybersecurity analyst user profile avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC27H73i3giOoKmDuVGpSFoaR7nULeNf3JBnGZUP-5HYEtbFKttm90f00NV_ySyAg2qsBg8WO7497M3V90vSBXHDf22MOwU3u-16cysZzLdD82ey6q8PtCFntR17LtAC_tVghfhqpqvpn5u0C1AP0-Cg8AMZr72R-U6enmspUG-gxcfY8DxBA_eJ8ygnSc39hmZoXDqEmEDJ3cSsfsX_YT1g2tv_et7BD7wczvT87ZfvxadahtYqdnLFTrpfnUcbB1rjt_VpQu9smw"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto cyber-grid">
+<div class="p-8 space-y-8 max-w-[1400px] mx-auto w-full">
+<section>
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-lg font-bold flex items-center gap-2 text-white">
+<span class="w-1 h-6 bg-primary rounded-full"></span>
+                            Unified Threat Overview
+                        </h3>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-white/5 rounded-full text-xs text-slate-400 border border-border-dark">Real-time Syncing</span>
+<span class="px-3 py-1 bg-emerald-500/10 text-emerald-500 rounded-full text-xs border border-emerald-500/20">Secure</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-card-dark border border-border-dark p-6 rounded-2xl neo-glow-hover flex items-center justify-between group">
+<div class="space-y-4">
+<div>
+<p class="text-slate-400 text-sm font-medium">Overall Risk Score</p>
+<h4 class="text-3xl font-bold font-mono text-white mt-1">24.8<span class="text-primary text-xl">%</span></h4>
+</div>
+<div class="flex items-center gap-2 text-emerald-400 text-xs">
+<span class="material-symbols-outlined text-sm">trending_down</span>
+<span>-5% from last 24h</span>
+</div>
+</div>
+<div class="relative w-24 h-24">
+<svg class="w-full h-full radial-progress" viewBox="0 0 36 36">
+<circle cx="18" cy="18" fill="none" r="16" stroke="#30363d" stroke-width="3"></circle>
+<circle class="drop-shadow-[0_0_8px_rgba(0,191,255,0.5)]" cx="18" cy="18" fill="none" r="16" stroke="#00bfff" stroke-dasharray="24.8, 100" stroke-linecap="round" stroke-width="3"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center text-[10px] font-bold text-slate-500">LOW</div>
+</div>
+</div>
+<div class="bg-card-dark border border-border-dark p-6 rounded-2xl neo-glow-hover flex items-center justify-between group">
+<div class="space-y-4">
+<div>
+<p class="text-slate-400 text-sm font-medium">Active Threats</p>
+<h4 class="text-3xl font-bold font-mono text-white mt-1">12<span class="text-orange-500 text-xl">+</span></h4>
+</div>
+<div class="flex items-center gap-2 text-orange-400 text-xs">
+<span class="material-symbols-outlined text-sm">priority_high</span>
+<span>2 critical alerts pending</span>
+</div>
+</div>
+<div class="relative w-24 h-24">
+<svg class="w-full h-full radial-progress" viewBox="0 0 36 36">
+<circle cx="18" cy="18" fill="none" r="16" stroke="#30363d" stroke-width="3"></circle>
+<circle class="drop-shadow-[0_0_8px_rgba(249,115,22,0.5)]" cx="18" cy="18" fill="none" r="16" stroke="#f97316" stroke-dasharray="65, 100" stroke-linecap="round" stroke-width="3"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center text-[10px] font-bold text-slate-500">HIGH</div>
+</div>
+</div>
+<div class="bg-card-dark border border-border-dark p-6 rounded-2xl neo-glow-hover flex items-center justify-between group">
+<div class="space-y-4">
+<div>
+<p class="text-slate-400 text-sm font-medium">AI Core Confidence</p>
+<h4 class="text-3xl font-bold font-mono text-white mt-1">98.2<span class="text-primary text-xl">%</span></h4>
+</div>
+<div class="flex items-center gap-2 text-primary text-xs">
+<span class="material-symbols-outlined text-sm">verified</span>
+<span>Optimization optimal</span>
+</div>
+</div>
+<div class="relative w-24 h-24">
+<svg class="w-full h-full radial-progress" viewBox="0 0 36 36">
+<circle cx="18" cy="18" fill="none" r="16" stroke="#30363d" stroke-width="3"></circle>
+<circle class="drop-shadow-[0_0_8px_rgba(0,191,255,0.5)]" cx="18" cy="18" fill="none" r="16" stroke="#00bfff" stroke-dasharray="98.2, 100" stroke-linecap="round" stroke-width="3"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center text-[10px] font-bold text-slate-500">PEAK</div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<h3 class="text-lg font-bold flex items-center gap-2 mb-6 text-white">
+<span class="w-1 h-6 bg-primary rounded-full"></span>
+                        Quick Actions
+                    </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-card-dark border border-border-dark p-8 rounded-2xl neo-glow-hover relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-8xl">shield_with_heart</span>
+</div>
+<div class="relative z-10">
+<h5 class="text-white text-xl font-bold mb-2">Web Vulnerability Scan</h5>
+<p class="text-slate-400 text-sm mb-6 max-w-sm">Initiate a deep surface audit on your web assets. Detects XSS, SQLi, and misconfigurations.</p>
+<div class="flex gap-3">
+<input class="flex-1 bg-background-dark border-border-dark rounded-lg px-4 py-2 text-sm focus:ring-primary focus:border-primary text-white" placeholder="https://your-app.com" type="text"/>
+<button class="bg-primary text-background-dark font-bold px-6 py-2 rounded-lg hover:brightness-110 transition-all whitespace-nowrap" onclick="window.location.href='vulnerability_Scanner.html'">START SCAN</button>
+</div>
+</div>
+</div>
+<div class="bg-card-dark border border-border-dark p-8 rounded-2xl neo-glow-hover relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-8xl">mark_email_read</span>
+</div>
+<div class="relative z-10">
+<h5 class="text-white text-xl font-bold mb-2">AI Email Header Analysis</h5>
+<p class="text-slate-400 text-sm mb-6 max-w-sm">Paste email headers to detect spoofing, phishing signatures, and malicious origin relays.</p>
+<div class="flex gap-3">
+<div class="flex-1 border-2 border-dashed border-border-dark rounded-lg flex items-center justify-center p-2 bg-background-dark/50">
+<span class="text-slate-500 text-xs font-medium">Drag &amp; drop raw header file here</span>
+</div>
+<button class="bg-white/10 text-white font-bold px-6 py-2 rounded-lg hover:bg-white/20 transition-all border border-border-dark" onclick="window.location.href='Phishing_analyzer.html'">ANALYZE</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<div class="bg-card-dark border border-border-dark rounded-2xl overflow-hidden">
+<div class="px-6 py-5 border-b border-border-dark flex items-center justify-between">
+<h3 class="text-lg font-bold flex items-center gap-2 text-white">
+<span class="w-1 h-6 bg-primary rounded-full"></span>
+                                Recent Activity &amp; Scan History
+                            </h3>
+<button class="text-primary text-sm font-bold flex items-center gap-1 hover:underline">
+                                View All History
+                                <span class="material-symbols-outlined text-xs font-bold">arrow_forward</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-white/5 text-slate-400 text-[10px] uppercase tracking-widest font-bold">
+<th class="px-6 py-4">Timestamp</th>
+<th class="px-6 py-4">Asset / Target</th>
+<th class="px-6 py-4">Module</th>
+<th class="px-6 py-4">Severity</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-dark">
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-4 text-xs font-mono text-slate-400">2026-11-20 14:23:01</td>
+<td class="px-6 py-4">
+<p class="text-white text-sm font-medium">dev.test-tool.io</p>
+<p class="text-[10px] text-slate-500">192.168.1.1</p>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded uppercase">WVS SCAN</span>
+</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1 text-red-500 text-xs font-bold">
+<span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                                                CRITICAL
+                                            </span>
+</td>
+<td class="px-6 py-4 text-xs text-slate-300">Completed</td>
+<td class="px-6 py-4 text-right">
+<button class="px-3 py-1 bg-white/5 hover:bg-white/10 border border-border-dark rounded text-xs font-bold transition-all text-white">REPORTS</button>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-4 text-xs font-mono text-slate-400">2026-11-20 13:45:12</td>
+<td class="px-6 py-4">
+<p class="text-white text-sm font-medium">Internal Mail Server</p>
+<p class="text-[10px] text-slate-500">Exchange-Hub-01</p>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-0.5 bg-purple-500/10 text-purple-500 text-[10px] font-bold rounded uppercase">EMAIL ANALYZER</span>
+</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1 text-emerald-500 text-xs font-bold">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                                CLEAN
+                                            </span>
+</td>
+<td class="px-6 py-4 text-xs text-slate-300">Filtered</td>
+<td class="px-6 py-4 text-right">
+<button class="px-3 py-1 bg-white/5 hover:bg-white/10 border border-border-dark rounded text-xs font-bold transition-all text-white">DETAILS</button>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-4 text-xs font-mono text-slate-400">2026-11-20 11:10:44</td>
+<td class="px-6 py-4">
+<p class="text-white text-sm font-medium">staging-api.v3</p>
+<p class="text-[10px] text-slate-500">AWS-EC2-Instance</p>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded uppercase">LOG SOC</span>
+</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1 text-orange-400 text-xs font-bold">
+<span class="w-2 h-2 rounded-full bg-orange-400"></span>
+                                                HIGH
+                                            </span>
+</td>
+<td class="px-6 py-4 text-xs text-slate-300">Processing</td>
+<td class="px-6 py-4 text-right">
+<button class="px-3 py-1 bg-white/5 hover:bg-white/10 border border-border-dark rounded text-xs font-bold transition-all text-white">MONITOR</button>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-4 text-xs font-mono text-slate-400">2026-11-20 09:15:22</td>
+<td class="px-6 py-4">
+<p class="text-white text-sm font-medium">customer-db-primary</p>
+<p class="text-[10px] text-slate-500">DB-CLUSTER-01</p>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded uppercase">AI CORE</span>
+</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1 text-emerald-500 text-xs font-bold">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                                OPTIMAL
+                                            </span>
+</td>
+<td class="px-6 py-4 text-xs text-slate-300">Scanning</td>
+<td class="px-6 py-4 text-right">
+<button class="px-3 py-1 bg-white/5 hover:bg-white/10 border border-border-dark rounded text-xs font-bold transition-all text-white">LIVE VIEW</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<footer class="py-8 border-t border-border-dark flex flex-col md:flex-row justify-between items-center gap-4 bg-transparent">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span class="text-xs text-slate-400 font-mono">ENCRYPTED_LINK_ESTABLISHED</span>
+</div>
+<div class="text-xs text-slate-500">
+                            © 2026 T.E.S.T. Cyber Systems. Threat Evaluation &amp; Security Tool. All rights reserved.
+                        </div>
+</div>
+<div class="flex items-center gap-6">
+<a class="text-xs text-slate-400 hover:text-primary transition-colors" href="#">Documentation</a>
+<a class="text-xs text-slate-400 hover:text-primary transition-colors" href="#">Support API</a>
+<a class="text-xs text-slate-400 hover:text-primary transition-colors" href="#">Status</a>
+</div>
+</footer>
+</div>
+</main>
+</div>
+
+</body></html>
