@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>T.E.S.T. Log SOC</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00bfff",
+                        "background-light": "#f3f5f7",
+                        "background-dark": "#0c0f13",
+                        "card-dark": "#161b22",
+                        "border-dark": "#30363d",
+                        "severity-critical": "#ff4d4d",
+                        "severity-high": "#ff8800",
+                        "severity-medium": "#ffcc00",
+                        "severity-low": "#00e676"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "mono": ["Space Grotesk", "monospace"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #0c0f13;
+        }
+        .neo-glow {
+            box-shadow: 0 0 15px rgba(0, 191, 255, 0.15);
+        }
+        .neo-glow-hover:hover {
+            box-shadow: 0 0 25px rgba(0, 191, 255, 0.3);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+        .radial-progress {
+            transform: rotate(-90deg);
+        }
+        .cyber-grid {
+            background-image: linear-gradient(rgba(0, 191, 255, 0.05) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(0, 191, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0c0f13;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #30363d;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00bfff;
+        }
+        .glass-panel {
+            background: rgba(22, 27, 34, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .scan-glow {
+            box-shadow: 0 0 20px rgba(0, 191, 255, 0.15);
+        }
+        .progress-shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background-size: 200% 100%;
+        }
+        .technical-border {
+            border: 1px solid rgba(0, 191, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 h-screen flex overflow-hidden">
+<aside class="w-72 border-r border-border-dark flex flex-col justify-between bg-card-dark z-30 shrink-0">
+<div class="p-6">
+<div class="flex items-start gap-3 mb-10">
+<div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center neo-glow border border-primary/30 shrink-0">
+<span class="material-symbols-outlined text-primary font-bold text-3xl">shield</span>
+</div>
+<div class="overflow-hidden">
+<h1 class="font-mono font-bold text-2xl tracking-tighter text-white leading-none">T.E.S.T.</h1>
+<p class="text-[9px] uppercase tracking-tighter text-slate-400 font-bold mt-1 leading-tight">Threat Evaluation &amp; Security Tool</p>
+</div>
+</div>
+<nav class="space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-white/5 hover:text-white transition-all" href="dashboard.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-white/5 hover:text-white transition-all" href="vulnerability_Scanner.html">
+<span class="material-symbols-outlined">security</span>
+<span class="font-medium">WVS Scanner</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-white/5 hover:text-white transition-all" href="Phishing_analyzer.html">
+<span class="material-symbols-outlined">mail_lock</span>
+<span class="font-medium">Email Analyzer</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary/10 text-primary border border-primary/20" href="log_soc.html">
+<span class="material-symbols-outlined">terminal</span>
+<span class="font-medium">Log SOC</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-white/5 hover:text-white transition-all" href="ai_core.html">
+<span class="material-symbols-outlined">memory</span>
+<span class="font-medium">AI Core</span>
+</a>
+</nav>
+</div>
+<div class="p-6 border-t border-border-dark">
+<div class="bg-primary/5 border border-primary/10 rounded-xl p-4 mb-4">
+<div class="flex justify-between items-center mb-2">
+<span class="text-xs font-bold text-primary">NODE STATUS</span>
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+</div>
+<p class="text-[11px] text-slate-400 leading-relaxed">AI engine operating at 98.4% efficiency. No active breaches detected.</p>
+</div>
+<button class="w-full py-3 bg-primary text-background-dark font-bold rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2" onclick="alert('Upgrade Plan initiated!')">
+<span class="material-symbols-outlined text-sm">bolt</span>
+                Upgrade Plan
+            </button>
+</div>
+</aside>
+<main class="flex-1 flex flex-col min-w-0 h-full relative cyber-grid">
+        <!-- HEADER -->
+        <header class="h-16 border-b border-gray-800 flex items-center justify-between px-8 bg-[#05070a] z-10">
+            <div class="flex items-center space-x-4">
+                <div class="flex items-center space-x-2">
+                    <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    <h2 class="font-bold text-lg text-white">LOG_SOC</h2>
+                </div>
+                <div class="h-4 w-[1px] bg-gray-700"></div>
+                <span class="text-[10px] text-cyan-600 font-bold uppercase tracking-widest">Security Operations Center</span>
+            </div>
+
+            <div class="flex items-center space-x-6">
+                <!-- Search bar -->
+                <div class="relative hidden md:block">
+                    <input type="text" placeholder="Search threats, logs, nodes..." class="bg-[#0f172a] border border-gray-800 rounded-full py-1.5 pl-10 pr-4 text-xs w-64 focus:outline-none focus:border-cyan-500 transition-all">
+                    <svg class="w-4 h-4 absolute left-3 top-2 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <button class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-primary border border-border-dark" onclick="alert('Notifications opened!')">
+                        <span class="material-symbols-outlined">notifications</span>
+                    </button>
+                    <button class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-primary border border-border-dark" onclick="alert('Settings opened!')">
+                        <span class="material-symbols-outlined">settings</span>
+                    </button>
+                </div>
+                <div class="h-10 w-[1px] bg-border-dark"></div>
+                <div class="flex items-center gap-3">
+                    <div class="text-right">
+                        <p class="text-sm font-bold text-white leading-none">Admin_User</p>
+                        <p class="text-[10px] text-primary font-mono uppercase tracking-widest mt-1">Tier: Enterprise</p>
+                    </div>
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-blue-600 p-[2px]">
+                        <div class="w-full h-full rounded-full bg-background-dark flex items-center justify-center overflow-hidden">
+                            <img alt="Cybersecurity analyst user profile avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC27H73i3giOoKmDuVGpSFoaR7nULeNf3JBnGZUP-5HYEtbFKttm90f00NV_ySyAg2qsBg8WO7497M3V90vSBXHDf22MOwU3u-16cysZzLdD82ey6q8PtCFntR17LtAC_tVghfhqpqvpn5u0C1AP0-Cg8AMZr72R-U6enmspUG-gxcfY8DxBA_eJ8ygnSc39hmZoXDqEmEDJ3cSsfsX_YT1g2tv_et7BD7wczvT87ZfvxadahtYqdnLFTrpfnUcbB1rjt_VpQu9smw"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- CENTER CONTENT -->
+        <div class="flex-1 flex flex-col items-center justify-center text-center p-6">
+            <div class="mb-6 relative">
+                <div class="absolute inset-0 bg-cyan-500/10 rounded-full blur-3xl"></div>
+                <div class="w-24 h-24 rounded-full border border-cyan-500/30 bg-[#0a0d14] flex items-center justify-center relative">
+                    <svg class="w-12 h-12 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                </div>
+            </div>
+            
+            <h1 class="text-3xl font-bold text-white mb-2">LOG_SOC Module</h1>
+            <p class="text-gray-400 text-sm max-w-sm mb-8 leading-relaxed">
+                This module is currently under development. The T.E.S.T. security team is working on advanced features for this section.
+            </p>
+            
+            <button class="px-8 py-3 rounded border border-cyan-500/50 text-cyan-400 text-[10px] font-bold tracking-widest uppercase hover:bg-cyan-500/10 transition-all glow-cyan" onclick="alert('Request Early Access initiated!')">
+                Request Early Access
+            </button>
+        </div>
+    </main>
+
+</body></html>
